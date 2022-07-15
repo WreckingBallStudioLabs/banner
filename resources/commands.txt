@@ -1,0 +1,4 @@
+- k:       An alias to kubectl
+- kubectx: Easily switch between Kubernetes contexts
+- kubens:  Easily switch between Kubernetes namespaces
+- stern:   Easily print multi-pod multi-container log tailing for Kubernetes
