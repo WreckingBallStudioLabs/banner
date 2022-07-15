@@ -1,0 +1,26 @@
+name: Go build and releaser
+
+on:
+  push:
+    branches:
+      - "!*"
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
+        
+    - name: GoReleaser Action
+      uses: goreleaser/goreleaser-action@v3.0.0
+      with:
+        args: release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
